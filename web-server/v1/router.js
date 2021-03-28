@@ -93,11 +93,11 @@ module.exports = function Router(database, settings) {
       if(req.ips.length) ip = req.ips[0];
       else ip = req.ip;
 
-      if(settings.server.signupWhiteList.findIndex( item => item === ip) > -1) {
-        next();
-      } else {
-        return res.status(401).end();
-      }
+//       if(settings.server.signupWhiteList.findIndex( item => item === ip) > -1) {
+      next();
+//       } else {
+//         return res.status(401).end();
+//       }
     }, users.AddUser);
 
   router.route('/users/:id')
